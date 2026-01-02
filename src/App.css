@@ -595,3 +595,23 @@ button {
     height: calc(100vh - 60px); /* Account for mobile header */
   }
 }
+
+.theme-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.theme-btn:hover {
+  background: rgba(148, 163, 184, 0.15);
+}
+
+.theme-btn.active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
