@@ -5,6 +5,8 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import LogToday from "./components/LogToday";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Dashboard from "./pages/Dashboard"; // moved to pages/
@@ -18,6 +20,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/log-today" element={<LogToday />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route
@@ -62,6 +65,13 @@ function App() {
         />
         <Route path="/" element={<Navigate to="/dashboard" />} />
       </Routes>
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 4000,
+          style: { background: "#18181b", color: "#fff" },
+        }}
+      />
     </Router>
   );
 }

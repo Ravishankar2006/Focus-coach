@@ -102,37 +102,78 @@ const Dashboard = () => {
     <AppLayout>
       <div className="dashboard-shell">
         {/* Header */}
-        <header className="dashboard-header">
-          <div className="dashboard-title-block">
-            <h1>Focus Coach</h1>
-            <p>Your digital discipline cockpit.</p>
-          </div>
+        <header
+          className="dashboard-header"
+          style={{
+            background: "linear-gradient(135deg, #1e1e2e 0%, #2a1f44 100%)",
+            padding: "2rem 2rem 1.5rem",
+            borderBottom: "1px solid rgba(255,255,255,0.1)",
+            position: "relative",
+            marginBottom: "2rem",
+          }}
+        >
+          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                flexWrap: "wrap",
+                gap: "1rem",
+              }}
+            >
+              {/* Title */}
+              <div>
+                <h1
+                  style={{
+                    fontSize: "2rem",
+                    fontWeight: 800,
+                    background: "linear-gradient(135deg, #a78bfa, #8b5cf6)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    margin: 0,
+                    lineHeight: 1.1,
+                  }}
+                >
+                  Focus Coach
+                </h1>
+                <p
+                  style={{
+                    color: "#94a3b8",
+                    fontSize: "1rem",
+                    margin: "0.25rem 0 0",
+                  }}
+                >
+                  your discipline coach
+                </p>
+              </div>
 
-          <div className="dashboard-actions">
-            <button
-              className="btn-pill btn-accent"
-              type="button"
-              onClick={toggleTheme}
-            >
-              {theme === "light" ? "🌙 Dark mode" : "☀️ Light mode"}
-            </button>
-            <button
-              className="btn-pill"
-              type="button"
-              onClick={() => navigate("/log-today")}
-            >
-              ➕ Log today
-            </button>
-            <button
-              className="btn-pill btn-danger"
-              type="button"
-              onClick={handleLogout}
-            >
-              ⏏ Logout
-            </button>
+              {/* Log Today Button */}
+              <button
+                className="log-today-btn"
+                style={{
+                  padding: "1rem 2rem",
+                  background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "16px",
+                  fontSize: "1rem",
+                  fontWeight: 600,
+                  cursor: "pointer",
+                  boxShadow: "0 8px 32px rgba(99, 102, 241, 0.4)",
+                  transition: "all 0.3s ease",
+                  minHeight: "56px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                }}
+                onClick={() => navigate("/log-today")}
+              >
+                📝 Log Today
+              </button>
+            </div>
           </div>
         </header>
-
         {/* AI-like focus plan (static for now) */}
         <section className="ai-panel">
           <h3>🤖 Focus Coach Plan</h3>
@@ -163,7 +204,6 @@ const Dashboard = () => {
           </div>
           <div className="ai-meta">AI narrative – live Gemini hook ready.</div>
         </section>
-
         {/* KPI cards */}
         <section className="kpi-grid">
           <div className="kpi-card">
@@ -194,7 +234,6 @@ const Dashboard = () => {
             </div>
           </div>
         </section>
-
         {/* Streak banner */}
         <section className="streak-banner">
           <div>
@@ -210,7 +249,6 @@ const Dashboard = () => {
             Aim for a 7‑day streak. Tiny inputs → big behavior change.
           </div>
         </section>
-
         {/* Chart */}
         <section style={{ marginBottom: 22 }}>
           <h3 style={{ marginBottom: 8 }}>📈 Screen time vs goal</h3>
@@ -252,7 +290,6 @@ const Dashboard = () => {
             </ResponsiveContainer>
           </div>
         </section>
-
         {/* Logs table */}
         <section>
           <h3 style={{ marginBottom: 8 }}>📋 Recent logs</h3>

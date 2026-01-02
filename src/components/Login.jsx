@@ -7,74 +7,65 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
-    setLoading(true);
-
     try {
-      await signInWithEmailAndPassword(auth, email.trim(), password);
+      await signInWithEmailAndPassword(auth, email, password);
       navigate('/dashboard');
     } catch (err) {
-      setError('Invalid email or password');
-    } finally {
-      setLoading(false);
+      setError('Invalid credentials. Please try again.');
     }
   };
 
   return (
     <div className="auth-shell">
       <div className="auth-card">
-        <div style={{ textAlign: 'center', marginBottom: 24 }}>
-          <h2 className="auth-title">Welcome back</h2>
-          <p className="auth-subtitle">
-            Track your focus, reclaim your time.
-          </p>
-        </div>
+        <h2 className="auth-title">Welcome back 👋</h2>
+        <p className="auth-subtitle">
+          Log in to see your focus analytics and discipline score.
+        </p>
 
         <form className="auth-form" onSubmit={handleLogin}>
           <div>
-            <label>Email address</label>
+            <label style={{ fontSize: '0.8rem', color: 'var(--text-soft)' }}>
+              Email
+            </label>
             <input
               className="auth-input"
               type="email"
               placeholder="you@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              disabled={loading}
               required
             />
           </div>
 
           <div>
-            <label>Password</label>
+            <label style={{ fontSize: '0.8rem', color: 'var(--text-soft)' }}>
+              Password
+            </label>
             <input
               className="auth-input"
               type="password"
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              disabled={loading}
               required
             />
           </div>
 
-          <button 
-            type="submit" 
-            className="auth-btn" 
-            disabled={loading}
-          >
-            {loading ? 'Signing in...' : 'Sign in'}
+          <button type="submit" className="auth-btn">
+            Continue to Dashboard
           </button>
 
           {error && <div className="auth-error">{error}</div>}
         </form>
 
         <div className="auth-footer">
-          New to Focus Coach? <Link to="/register">Create account</Link>
+          New here? <Link to="/register">Create an account</Link>
         </div>
       </div>
     </div>

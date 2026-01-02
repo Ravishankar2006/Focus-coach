@@ -75,7 +75,7 @@ const Insights = () => {
     
     insightsList.push({
       type: trend === 'improving' ? 'success' : 'neutral',
-      title: `${trend === 'improving' ? '🚀 Momentum Building' : '📊 Stable Baseline'}`,
+      title: `${trend === 'improving' ? '🚀 Momentum Building' : 'Stable Baseline'}`,
       message: `Recent 7-day avg: ${recentScore.toFixed(0)}% ${trend === 'improving' ? '(uptrend!)' : ''}`,
       icon: trend === 'improving' ? '📈' : '📊'
     });

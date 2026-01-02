@@ -532,3 +532,66 @@ button {
   border-color: var(--accent);
   color: var(--accent);
 }
+
+/* Cyberpunk Enhancements */
+.neon-glow {
+  box-shadow: 
+    0 0 10px var(--accent),
+    0 0 20px var(--accent),
+    0 0 30px var(--accent-soft);
+}
+
+.btn-hover-glow:hover {
+  box-shadow: var(--shadow-soft), 0 0 25px var(--accent);
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  height: 100vh; /* Fixed height = no stretch */
+  overflow: hidden; /* Prevent page scroll affecting layout */
+}
+
+.sidebar {
+  width: 260px;
+  height: 100vh; /* Fixed height */
+  background: var(--bg-elevated);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0; /* Never shrink */
+  position: sticky; /* Stays fixed */
+  top: 0;
+  overflow: hidden;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 8px 0;
+  overflow-y: auto; /* Scroll nav if too many items */
+}
+
+.app-content {
+  flex: 1;
+  overflow-y: auto; /* ONLY content scrolls */
+  overflow-x: hidden;
+}
+
+/* Mobile: collapse sidebar */
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+  }
+  .app-content {
+    height: calc(100vh - 60px); /* Account for mobile header */
+  }
+}
